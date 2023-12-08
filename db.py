@@ -34,3 +34,14 @@ def login_usuario(email, senha):
         return "\nLogin bem-sucedido!"
     else:
         return "\nEmail ou senha incorretos."
+
+
+def consultar_usuarios():
+    conn = sqlite3.connect('database.db')
+    cursor = conn.cursor()
+    cursor.execute('''
+        SELECT * FROM usuario
+    ''')
+    resultados = cursor.fetchall()
+    conn.close()
+    return resultados

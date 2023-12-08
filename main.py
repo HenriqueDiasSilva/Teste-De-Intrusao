@@ -1,4 +1,4 @@
-from db import criar_tabela, cadastrar_usuario, login_usuario
+from db import criar_tabela, cadastrar_usuario, login_usuario, consultar_usuarios
 
 
 def menu():
@@ -6,7 +6,8 @@ def menu():
         print("\nMenu:")
         print("1. Cadastrar novo usuário")
         print("2. Fazer login")
-        print("3. Sair")
+        print("3. Listar usuários")
+        print("4. Sair")
 
         opcao = input("Escolha uma opção: ")
 
@@ -22,11 +23,14 @@ def menu():
             mensagem = login_usuario(email, senha)
             print(mensagem)
         elif opcao == '3':
+            usuarios = consultar_usuarios()
+            for usuario in usuarios:
+                print(usuario)
+        elif opcao == '4':
             break
         else:
             print("\nOpção inválida!")
 
 
-if __name__ == "__main__":
-    criar_tabela()
-    menu()
+criar_tabela()
+menu()
