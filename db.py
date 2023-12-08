@@ -43,5 +43,4 @@ def consultar_usuarios():
         SELECT * FROM usuario
     ''')
     resultados = cursor.fetchall()
-    conn.close()
     return resultados
